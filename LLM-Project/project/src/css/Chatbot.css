@@ -1,0 +1,269 @@
+/* Global container */
+.chatbot-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 90vh;
+    display: flex;
+}
+
+.delete-button img {
+    width: 20px;
+    height: 25px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #f0f2f5;
+    padding: 20px;
+    border-right: 1px solid #dcdcdc;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+/* 타이틀과 버튼 고정 */
+.header-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0; /* 스크롤에도 고정 */
+    background-color: #f0f2f5;
+    z-index: 1;
+}
+
+/* 스크롤바가 적용될 채팅 목록 */
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 70vh; /* 최대 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤바 활성화 */
+    scrollbar-width: thin; /* Firefox 스크롤바 */
+    scrollbar-color: #aaa #f0f2f5; /* 스크롤바 색상 */
+}
+
+/* 스크롤바 스타일 (Webkit 브라우저) */
+.sidebar nav ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar nav ul::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 4px;
+}
+
+.sidebar nav ul::-webkit-scrollbar-track {
+    background-color: #f0f2f5;
+}
+
+
+.sidebar nav li {
+    margin-bottom: 15px;
+    display: flex; /* flexbox로 설정 */
+    justify-content: space-between; /* 요소 간격 분리 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.sidebar nav li span {
+    flex: 1; /* 제목이 남은 공간 차지 */
+    cursor: pointer; /* 커서 포인터로 변경 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+/* Delete 버튼 기본 숨기기 */
+.sidebar nav li .delete-button {
+    display: none; /* 기본 상태에서는 숨기기 */
+    margin-left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 마우스를 올렸을 때만 delete 버튼 보이기 */
+.sidebar nav li:hover .delete-button {
+    display: flex; /* 마우스를 올리면 버튼 보이기 */
+}
+
+
+/* Toggle Button */
+.toggle-button {
+    margin-right: 10px; /* 버튼과 제목 사이 간격 */
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: #d1d1d1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-button:hover {
+    background-color: #6d6d6d;
+}
+
+/* Header with Button - 제목 가운데 정렬, 버튼 오른쪽 정렬 */
+.header-with-button {
+    display: flex;
+    align-items: center; /* 세로로 가운데 정렬 */
+    justify-content: center; /* 제목을 가운데로 정렬 */
+    position: relative; /* 버튼을 절대 위치로 배치하기 위해 필요 */
+    width: 100%;
+    margin-bottom: 20px; /* 제목과 다른 요소들 사이 간격 */
+}
+
+.header-with-button .new-chat-button {
+    position: absolute;
+    right: 0px;  /* 버튼을 오른쪽 끝에 배치 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+}
+
+.header-with-button h2 {
+    text-align: center; /* 제목 가운데 정렬 */
+    margin: 0;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    padding: 10px;
+    border-bottom: 1px solid #dcdcdc;
+    position: relative; /* 버튼을 절대 위치로 조정하기 위해 상대 위치 설정 */
+}
+
+.header-title {
+    flex: 1; /* 제목이 남은 공간을 차지하도록 설정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.header p {
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Highlight */
+.highlight {
+    font-weight: bold;
+    color: #000;
+}
+
+.highlight-blue {
+    color: #006dcc;
+}
+
+/* Chat Section */
+.chat-section {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+}
+
+.chat-left {
+    background-color: #e6f7ff;
+    align-self: flex-start;
+}
+
+.chat-right {
+    background-color: #f0f0f0;
+    align-self: flex-end;
+}
+
+/* Chat Input */
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #dcdcdc;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    background-color: #003c81;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.history-list {
+    max-height: calc(100vh - 150px); /* 화면 높이에 따라 조정 */
+    overflow-y: auto;
+  }
+  
+  .history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+  
+  .history-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .history-title {
+    flex: 1;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .delete-button img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .empty-history {
+    text-align: center;
+    color: #aaa;
+    padding: 20px;
+  }
+  
